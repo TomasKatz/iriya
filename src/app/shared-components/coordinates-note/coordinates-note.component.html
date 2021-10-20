@@ -1,0 +1,36 @@
+<div class="modal-header">
+  <h4 class="modal-title">Hi there!</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="flexCenter">
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">Space Coordinates</h5>
+        <div class="form-group">
+          <label for="latitude">Latitude: </label>
+          <span id="latitude"> {{coordinates.iss_position.latitude}}</span>
+        </div>
+        <div class="form-group">
+          <label for="longitude">Longitude: </label>
+          <span id="longitude"> {{coordinates.iss_position.longitude}}</span>
+        </div>
+        <div class="form-group">
+          <label for="time">Time: </label>
+          <span id="time"> {{coordinates.timestamp * 1000 | date}}</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlTextarea1">Enter Coordinates Note</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" (change)="updateNote($event)"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary" (click)="resolveNote()">Add Note</button>
+    </div>
+  </div>
+
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+</div>

@@ -1,0 +1,34 @@
+<div class="flexCenter">
+  <div class="card" style="width: 18rem;" *ngIf="currentSpaceCoordinates">
+    <div class="card-body">
+      <h5 class="card-title">Space Coordinates</h5>
+      <div class="form-group">
+        <label for="latitude">Latitude: </label>
+        <span id="latitude"> {{currentSpaceCoordinates.iss_position.latitude}}</span>
+      </div>
+      <div class="form-group">
+        <label for="longitude">Longitude: </label>
+        <span id="longitude"> {{currentSpaceCoordinates.iss_position.longitude}}</span>
+      </div>
+      <div class="form-group">
+        <label for="time">Time: </label>
+        <span id="time"> {{currentSpaceCoordinates.timestamp * 1000 | date}}</span>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="openNoteModal()">Add Note</button>
+  </div>
+</div>
+<div class="flexCenter marginTop10">
+  <ul class="list-group" style="width: 18rem;">
+    <li class="list-group-item" *ngFor="let item of notes">
+      <label>Latitude: </label><span>{{item.coordinates.iss_position.latitude}}</span><br/>
+      <label for="longitude">Longitude: </label><span>{{item.coordinates.iss_position.longitude}}</span><br/>
+      <label for="time">Time: </label><span>{{item.coordinates.timestamp * 1000 | date}}</span>
+      <p>
+        {{item.note}}
+      </p>
+    </li>
+  </ul>
+</div>
+
+
